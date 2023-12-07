@@ -16,7 +16,7 @@ export const SectionTitle = (props: TitlePropsType) => {
 }
 
 const TitleWrapper = styled(FlexWrapper)`
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 `
 
 const BgText = styled.h2`
@@ -29,9 +29,10 @@ const BgText = styled.h2`
   font-weight: 500;
 `
 
-const Text = styled.p`
+const Text = styled.span`
   position: relative;
   font-size: 45px;
+  letter-spacing: 20px;
 
   &::after {
     content: "";

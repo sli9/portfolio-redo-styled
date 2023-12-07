@@ -37,11 +37,19 @@ export const GlobalStyle = createGlobalStyle`
   section {
     padding: 50px 0;
   }
-  
   section:nth-child(odd) {
     background-color: ${theme.colors.firstBg};
   }
   section:nth-child(even) {
     background-color: ${theme.colors.secondBg};
+  }
+  
+  h3 {
+    font-family: Poppins, sans-serif;
+    font-size: 20px;
+  }
+  
+  p {
+    font-family: Poppins, sans-serif;
   }
     `

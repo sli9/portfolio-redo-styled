@@ -26,7 +26,7 @@ export const Skill = (props: SkillPropsType) => {
 
 const StyledSkill = styled(FlexWrapper)`
   width: 350px;
-  margin: 50px 0;
+  margin-bottom: 75px;
 `
 
 const StyledSkillIcon = styled(FlexWrapper)`
@@ -40,10 +40,9 @@ const StyledSkillIcon = styled(FlexWrapper)`
 
 const DescriptionWrapper = styled.div`
   flex-basis: 260px;
-  font-family: Poppins, sans-serif;
+  
 `
 const StyledSkillTitle = styled.h3`
-  font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
 `
