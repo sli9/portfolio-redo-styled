@@ -4,7 +4,6 @@ import {theme} from "../../../../styles/Theme";
 type WorkPropsType = {
     title: string
     description: string
-    // style: { backgroundImage: string }
     codeLink: string
     siteLink: string
     srcImage: string
@@ -14,7 +13,6 @@ export const Work = (props: WorkPropsType) => {
     return (
         <StyledWork>
             <Link href={`${props.siteLink}`} target='_blank' rel={"noopener noreferrer"}>
-                {/*<BgImage align={"center"} justify={"center"} style={props.style}/>*/}
                 <ImageWrapper>
                     <Image src={props.srcImage} alt={"image"}/>
                 </ImageWrapper>
@@ -50,16 +48,29 @@ const ImageWrapper = styled.div`
   position: relative;
   border-radius: 7px 7px 0 0;
 
+  &::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    content: "view project";
+    font-size: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 7px 7px 0 0;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
   &:hover {
     &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      transition: .5s ease-in-out;
+      opacity: 1;
     }
   }
 `
@@ -70,17 +81,39 @@ const Image = styled.img`
   object-fit: fill;
   border-radius: 7px 7px 0 0;
 `
-// const BgImage = styled(FlexWrapper)`
-//   height: 300px;
-//   background-size: cover;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   border-radius: 7px 7px 0 0;
-// `
+
 const WorkInfo = styled.div`
   background-color: ${theme.colors.firstBg};
   border-radius: 0 0 7px 7px;
   padding: 25px 20px;
+
+  position: relative;
+
+  &::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    content: "view code";
+    font-size: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 7px 7px;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
 `
 
 const WorkInfoTitle = styled.h3`

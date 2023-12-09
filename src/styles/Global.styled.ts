@@ -32,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
   button {
     background-color: unset;
     border: unset;
+    cursor: pointer;
   }
   
   section {

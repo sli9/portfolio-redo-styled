@@ -12,15 +12,15 @@ export const Works = () => {
             <Container>
                 <SectionTitle text={'Projects'} bgtext={'My works'}/>
 
-                <FlexWrapper justify={"space-between"}>
+                <FlexWrapper justify={"space-between"} align={"flex-start"}>
                     <Work srcImage={TodoImage}
-                          codeLink={'#'}
-                          siteLink={'#'}
+                          codeLink={'https://github.com/sli9/Todolist'}
+                          siteLink={'https://sli9.github.io/Todolist'}
                           description={'React, Redux toolkit, TS, RestAPI, Thunk, Material UI, Unit Tests, formik'}
                           title={'TodoList'}/>
                     <Work srcImage={socialPicture}
-                          codeLink={'#'}
-                          siteLink={'#'}
+                          codeLink={'https://github.com/sli9/Setka'}
+                          siteLink={'https://sli9.github.io/Setka'}
                           description={'React, Redux, RestAPI, TS, Thunk, Ant design, Redux Form'}
                           title={'Social network'}/>
                 </FlexWrapper>
