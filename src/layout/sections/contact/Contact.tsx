@@ -4,8 +4,20 @@ import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Container} from "../../../components/Container";
 import {theme} from "../../../styles/Theme";
 import {Icon} from "../../../components/icon/Icon";
+import {useRef, useState} from "react";
 
 export const Contact = () => {
+    const form = useRef<HTMLFormElement | null>(null)
+    const [isDisabled, setIsDisabled] = useState<boolean>(true)
+
+    const isValid = () => {
+        if(form.current?.checkValidity()) {
+            setIsDisabled(false)
+        } else setIsDisabled(true)
+        console.log(isDisabled)
+        console.log(form.current?.checkValidity())
+    }
+
     return (
         <StyledContact>
             <Container>
@@ -26,11 +38,23 @@ export const Contact = () => {
                         </FlexWrapper>
                     </InformationBlock>
 
-                    <StyledForm>
-                        <Field/>
-                        <Field/>
-                        <Field as={"textarea"}/>
-                        <Button type={"submit"}>Send Message</Button>
+                    <StyledForm onChange={isValid} ref={form}>
+                        <FieldWrapper>
+                            <Field type={"text"} name={"name"} required/>
+                            <label>Your name</label>
+                            <span></span>
+                        </FieldWrapper>
+                        <FieldWrapper>
+                            <Field type={"email"} name={"email"} required/>
+                            <label>Your email</label>
+                            <span></span>
+                        </FieldWrapper>
+                        <FieldWrapper>
+                            <Field name={"message"} as={"textarea"} maxLength={2000} required/>
+                            <label>Message</label>
+                            <span></span>
+                        </FieldWrapper>
+                        <Button disabled={isDisabled}>Send Message</Button>
                     </StyledForm>
                 </FlexWrapper>
             </Container>
@@ -49,21 +73,86 @@ const StyledForm = styled.form`
   flex-direction: column;
   gap: 20px;
 
-  textarea {
-    resize: none;
+  div:has(textarea) {
+    height: 100px;
   }
 `
 
 const Field = styled.input`
+  border: none;
+  background: none;
+  outline: none;
+  color: #fff;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &:focus + label {
+    top: -24px;
+    left: 0;
+    z-index: 10;
+    color: ${theme.colors.accent};
+  }
+
+  //remove background of autofill
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000000s ease-in-out 0s,
+    color 5000000s ease-in-out 0s;
+  }
+`
+
+const FieldWrapper = styled.div`
+  position: relative;
+
+  height: 38px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid ${theme.colors.text};
+
+  label {
+    position: absolute;
+    top: -15px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+
+    transition: top 0.3s, color 0.3s;
+  }
+
+  span {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    content: '';
+    height: 2px;
+    width: 0;
+    transition: 0.7s;
+    background-color: ${theme.colors.accent};
+  }
+
+  textarea {
+    resize: none;
+    padding: 10px 10px 10px 0;
+  }
+
+  ${Field}:valid ~ span {
+    width: 100%;
+  }
 
 `
 
 const InformationBlock = styled.div`
   max-width: 40%;
-  
-  div:nth-child(2) {
+
+  & div:nth-child(2) {
     margin-bottom: 30px;
   }
+
   div:not(h4) {
     font-family: Poppins, sans-serif;
   }
@@ -83,7 +172,7 @@ const Button = styled.button`
   width: fit-content;
   padding: 6px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition-duration: 0.4s;
   transition-property: box-shadow, transform;
 
@@ -93,8 +182,10 @@ const Button = styled.button`
   }
 
 
-  //&:disabled {
-  //  opacity: 0.4;
-  //  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  //}
+  &:disabled,
+  &:hover:disabled {
+    opacity: 0.3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: none;
+  }
 `
