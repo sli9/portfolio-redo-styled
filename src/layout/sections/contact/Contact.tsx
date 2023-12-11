@@ -14,8 +14,6 @@ export const Contact = () => {
         if(form.current?.checkValidity()) {
             setIsDisabled(false)
         } else setIsDisabled(true)
-        console.log(isDisabled)
-        console.log(form.current?.checkValidity())
     }
 
     return (
@@ -40,18 +38,18 @@ export const Contact = () => {
 
                     <StyledForm onChange={isValid} ref={form}>
                         <FieldWrapper>
-                            <Field type={"text"} name={"name"} required/>
-                            <label>Your name</label>
+                            <Field type={"text"} id={"name"} required/>
+                            <label htmlFor={"name"}>Your name</label>
                             <span></span>
                         </FieldWrapper>
                         <FieldWrapper>
-                            <Field type={"email"} name={"email"} required/>
-                            <label>Your email</label>
+                            <Field type={"email"} id={"email"} required/>
+                            <label htmlFor={"email"}>Your email</label>
                             <span></span>
                         </FieldWrapper>
                         <FieldWrapper>
-                            <Field name={"message"} as={"textarea"} maxLength={2000} required/>
-                            <label>Message</label>
+                            <Field id={"message"} as={"textarea"} maxLength={2000} required/>
+                            <label htmlFor={"message"}>Message</label>
                             <span></span>
                         </FieldWrapper>
                         <Button disabled={isDisabled}>Send Message</Button>

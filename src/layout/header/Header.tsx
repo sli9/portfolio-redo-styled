@@ -11,7 +11,7 @@ export const Header = () => {
         <StyledHeader>
             <Container>
                 <FlexWrapper align={"center"} justify={"space-between"}>
-                    <Icon iconId={'js'} viewBox={'0 0 448 512'}/>
+                    <Icon iconId={'logo'} viewBox={'0 0 100 100'} fill={"#111418"}/>
                     <Menu items={items}/>
                 </FlexWrapper>
             </Container>
@@ -21,8 +21,8 @@ export const Header = () => {
 
 const StyledHeader = styled.header`
   display: flex;
-  background-color: transparent;
-  //background-color: #111418;
+  //background-color: transparent;
+  background-color: #111418;
   height: 70px;
   position: fixed;
   z-index: 100;
