@@ -22,6 +22,10 @@ const StyledMenu = styled.nav`
     gap: 30px;
     list-style: none;
   }
+  
+  @media ${theme.media.mobile} {
+    display: none;
+  }
 `
 
 const Link = styled.a`

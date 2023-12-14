@@ -10,7 +10,7 @@ export const Main = () => {
     return (
         <StyledMain>
             <Container>
-                <FlexWrapper justify={"space-between"} align={"center"}>
+                <MainFlexWrapper justify={"space-between"} align={"center"}>
                     <CreatingText>
                         <span>Hello, I'm</span>
                         <h2>Andrey Selilo</h2>
@@ -23,7 +23,7 @@ export const Main = () => {
                     <PhotoWrapper>
                         <Photo src={MainPhoto} alt={'photo'}/>
                     </PhotoWrapper>
-                </FlexWrapper>
+                </MainFlexWrapper>
             </Container>
         </StyledMain>
     )
@@ -36,20 +36,11 @@ const StyledMain = styled.main`
   background-image: url(${mainBg});
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 0;
-
-  &::before {
-    position: absolute;
-    content: '';
-    background-color: #111418;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.6;
-    z-index: -1;
-  }
 }
+`
+
+const MainFlexWrapper = styled(FlexWrapper)`
+  backdrop-filter: brightness(0.7);
 `
 
 const CreatingText = styled.div`
@@ -118,5 +109,5 @@ const PhotoWrapper = styled.div`
     left: -30px;
     top: -40px;
   }
-
+  
 `
