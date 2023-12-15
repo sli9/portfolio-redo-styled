@@ -5,16 +5,17 @@ import mainBg from "../../../assets/images/forMain/mainBackground.jpg"
 import {Container} from "../../../components/Container";
 import MyCV from "../../../assets/images/documents/Mycv.pdf"
 import {theme} from "../../../styles/Theme";
+import {flexFont} from "../../../styles/Common";
 
 export const Main = () => {
     return (
         <StyledMain>
             <Container>
-                <MainFlexWrapper justify={"space-between"} align={"center"}>
+                <MainFlexWrapper justify={"space-between"} align={"center"} >
                     <CreatingText>
                         <span>Hello, I'm</span>
                         <h2>Andrey Selilo</h2>
-                        <h1>Frontend-developer</h1>
+                        <h2>Frontend-developer</h2>
                         <ButtonCV>
                             <a href={MyCV} download={'Andrey_CV'} target="_blank" rel={'noopener noreferrer'}>Download
                                 CV</a>
@@ -41,25 +42,33 @@ const StyledMain = styled.main`
 
 const MainFlexWrapper = styled(FlexWrapper)`
   backdrop-filter: brightness(0.7);
+  
+  @media ${theme.media.tablet} {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 35px;
+  }
 `
 
 const CreatingText = styled.div`
-  font-weight: 300;
-  font-size: 50px;
   display: flex;
   flex-direction: column;
-  color: #fff;
+  
+  h2 {
+    ${flexFont({weight: 600, color: "#fff", lineHeight: 1.5, Fmax: 50, Fmin: 36})}
+  }
 `
 
 const ButtonCV = styled.div`
   font-size: 24px;
   font-weight: 500;
+  margin-top: 50px;
 
   a {
     color: ${theme.colors.accent};
     border: ${theme.colors.accent} solid 2px;
-    border-radius: 50rem;
-    padding: 0.8rem 2.6rem;
+    border-radius: 90px;
+    padding: 13px 42px;
     transition: all 0.5s ease;
 
     &:hover {
@@ -85,6 +94,7 @@ const PhotoWrapper = styled.div`
   position: relative;
   max-height: 400px;
   max-width: 320px;
+  margin-right: 25px;
 
   &::after {
     content: '';
@@ -110,4 +120,21 @@ const PhotoWrapper = styled.div`
     top: -40px;
   }
   
+
+  @media ${theme.media.tablet} {
+    max-height: 300px;
+    max-width: 300px;
+    border: 15px solid ${theme.colors.firstBg};
+    border-radius: 50%;
+    box-shadow: 5px 7px 25px rgb(0 0 0 / 50%);
+    overflow: hidden;
+    margin-right: 0;
+    
+  }
+  
+  @media ${theme.media.mobile} {
+    max-height: 200px;
+    max-width: 200px;
+    border: 10px solid ${theme.colors.firstBg};
+  }
 `
