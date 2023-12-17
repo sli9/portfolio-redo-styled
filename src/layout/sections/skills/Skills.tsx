@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {SectionTitle} from "../../../components/SectionTitle";
-import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Skill} from "./skill/Skill";
 import {Container} from "../../../components/Container";
 
@@ -9,7 +8,7 @@ export const Skills = () => {
         <StyledSkills>
             <Container>
                 <SectionTitle text={"Skills"} bgtext={"What I know"}/>
-                <FlexWrapper align={"start"} justify={"space-between"} wrap={"wrap"}>
+                <GridWrapper>
 
                     <Skill title={'JS'}
                            description={'ES6, Cycles, Conditionals, Event, Promise, etc. '}
@@ -43,7 +42,7 @@ export const Skills = () => {
                            iconId={'html'}
                     />
 
-                </FlexWrapper>
+                </GridWrapper>
             </Container>
         </StyledSkills>
     )
@@ -51,4 +50,10 @@ export const Skills = () => {
 
 const StyledSkills = styled.section`
 
+`
+
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, auto));
+  gap: 75px;
 `

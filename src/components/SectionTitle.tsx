@@ -7,7 +7,7 @@ type TitlePropsType = {
     bgtext: string
 }
 export const SectionTitle = (props: TitlePropsType) => {
-    return(
+    return (
         <TitleWrapper align={"center"}>
             <BgText>{props.bgtext}</BgText>
             <Text>{props.text}</Text>
@@ -19,7 +19,7 @@ const TitleWrapper = styled(FlexWrapper)`
   margin-bottom: 100px;
 `
 
-const BgText = styled.h2`
+const BgText = styled.span`
   color: #aaa;
   text-transform: uppercase;
   position: absolute;
@@ -27,12 +27,17 @@ const BgText = styled.h2`
   letter-spacing: 10px;
   font-size: 100px;
   font-weight: 500;
+
+  @media ${theme.media.tablet} {
+    display: none;
+  }
 `
 
-const Text = styled.span`
+const Text = styled.h2`
   position: relative;
   font-size: 45px;
   letter-spacing: 20px;
+  font-weight: 500;
 
   &::after {
     content: "";
@@ -42,6 +47,14 @@ const Text = styled.span`
     background-color: ${theme.colors.accent};
     left: 0;
     bottom: -20px;
+
+    @media ${theme.media.tablet} {
+      bottom: -5px;
+    }
+  }
+
+  @media ${theme.media.tablet} {
+    letter-spacing: 10px;
   }
 `
     

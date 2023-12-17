@@ -12,21 +12,20 @@ type SkillPropsType = {
 
 export const Skill = (props: SkillPropsType) => {
     return (
-        <StyledSkill align={"center"} justify={"space-between"} wrap={"wrap"} gap={"15px"}>
+        <StyledSkill align={"center"} justify={"center"} gap={"15px"}>
             <StyledSkillIcon align={"center"} justify={"center"}>
                 <Icon iconId={props.iconId} viewBox={props.viewBox}/>
             </StyledSkillIcon>
-            <DescriptionWrapper>
-                <StyledSkillTitle>{props.title}</StyledSkillTitle>
-                <StyledSkillText>{props.description}</StyledSkillText>
-            </DescriptionWrapper>
+                <DescriptionWrapper>
+                    <StyledSkillTitle>{props.title}</StyledSkillTitle>
+                    <StyledSkillText>{props.description}</StyledSkillText>
+                </DescriptionWrapper>
         </StyledSkill>
     )
 }
 
 const StyledSkill = styled(FlexWrapper)`
-  width: 350px;
-  margin-bottom: 75px;
+  
 `
 
 const StyledSkillIcon = styled(FlexWrapper)`
@@ -40,7 +39,6 @@ const StyledSkillIcon = styled(FlexWrapper)`
 
 const DescriptionWrapper = styled.div`
   flex-basis: 260px;
-  
 `
 const StyledSkillTitle = styled.h3`
   margin-bottom: 10px;
