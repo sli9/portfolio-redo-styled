@@ -55,5 +55,6 @@ const StyledSkills = styled.section`
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, auto));
-  gap: 75px;
+  grid-column-gap: 40px;
+  grid-row-gap: 75px;
 `

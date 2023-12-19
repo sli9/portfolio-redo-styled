@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {theme} from "../../../../styles/Theme";
+import {FlexWrapper} from "../../../../components/FlexWrapper";
 
 type WorkPropsType = {
     title: string
@@ -13,17 +14,21 @@ export const Work = (props: WorkPropsType) => {
     return (
         <StyledWork>
             <Link href={`${props.siteLink}`} target='_blank' rel={"noopener noreferrer"}>
-                <ImageWrapper>
+                <ImageWrapper align={"center"} justify={"center"}>
                     <Image src={props.srcImage} alt={"image"}/>
+                    <Button>view project</Button>
                 </ImageWrapper>
             </Link>
 
-            <Link href={`${props.codeLink}`} target='_blank' rel={"noopener noreferrer"}>
-                <WorkInfo>
-                    <WorkInfoTitle>{props.title}</WorkInfoTitle>
-                    <Text>{props.description}</Text>
-                </WorkInfo>
-            </Link>
+            <WorkInfo>
+                <WorkInfoTitle>{props.title}</WorkInfoTitle>
+                <Text>{props.description}</Text>
+                <Button>
+                    <Link href={`${props.codeLink}`} target='_blank' rel={"noopener noreferrer"}>
+                        view code
+                    </Link>
+                </Button>
+            </WorkInfo>
         </StyledWork>
     )
 }
@@ -43,8 +48,27 @@ const StyledWork = styled.div`
   }
 `
 
+const Button = styled.button`
+  display: none;
+  color: ${theme.colors.font};
+  background-color: ${theme.colors.accent};
+  border: ${theme.colors.accent} solid 2px;
+  border-radius: 90px;
+  padding: 10px 20px;
+  z-index: 10;
+  margin-top: 20px;
 
-const ImageWrapper = styled.div`
+  &:focus {
+    background-color: ${theme.colors.focus};
+    border-color: ${theme.colors.focus};
+  }
+
+  @media ${theme.media.tablet} {
+    display: block;
+  }
+`
+
+const ImageWrapper = styled(FlexWrapper)`
   position: relative;
   border-radius: 7px 7px 0 0;
 
@@ -71,6 +95,17 @@ const ImageWrapper = styled.div`
   &:hover {
     &::before {
       opacity: 1;
+    }
+  }
+
+  @media ${theme.media.tablet} {
+    &:before {
+      content: "";
+      opacity: 1;
+    }
+
+    & ${Button} {
+      position: absolute;
     }
   }
 `
@@ -107,6 +142,10 @@ const WorkInfo = styled.div`
 
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+
+    @media ${theme.media.tablet} {
+      display: none;
+    }
   }
 
   &:hover {

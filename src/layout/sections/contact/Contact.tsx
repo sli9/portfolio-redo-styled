@@ -80,7 +80,7 @@ const Field = styled.input`
   border: none;
   background: none;
   outline: none;
-  color: #fff;
+  color: ${theme.colors.font};
 
   position: absolute;
   top: 0;

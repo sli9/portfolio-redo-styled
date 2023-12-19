@@ -55,7 +55,7 @@ const CreatingText = styled.div`
   flex-direction: column;
   
   h2 {
-    ${flexFont({weight: 600, color: "#fff", lineHeight: 1.5, Fmax: 50, Fmin: 36})}
+    ${flexFont({weight: 600, color: theme.colors.font, lineHeight: 1.5, Fmax: 50, Fmin: 36})}
   }
 `
 
@@ -73,13 +73,13 @@ const ButtonCV = styled.div`
 
     &:hover {
       background-color: ${theme.colors.accent};
-      color: #fff;
+      color: ${theme.colors.font};
     }
 
     &:focus {
-      background-color: #0d6efd;
-      border-color: #0d6efd;
-      color: #fff;
+      background-color: ${theme.colors.focus};
+      border-color: ${theme.colors.focus};
+      color: ${theme.colors.font};
     }
   }
 `

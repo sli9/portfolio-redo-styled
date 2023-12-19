@@ -3,8 +3,10 @@ export const theme = {
         firstBg: '#434242',
         secondBg: '#4f4f4f',
         accent: '#ee6817',
+        focus: '#0d6efd',
 
-        text: '#aaa'
+        text: '#aaa',
+        font: '#fff',
     },
     media: {
         tablet: 'screen and (max-width: 768px )',

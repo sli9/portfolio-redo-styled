@@ -12,7 +12,7 @@ export const Works = () => {
             <Container>
                 <SectionTitle text={'Projects'} bgtext={'My works'}/>
 
-                <FlexWrapper justify={"space-between"} align={"flex-start"}>
+                <FlexWrapper justify={"center"} align={"flex-start"} wrap={"wrap"} gap={"30px"}>
                     <Work srcImage={TodoImage}
                           codeLink={'https://github.com/sli9/Todolist'}
                           siteLink={'https://sli9.github.io/Todolist'}
