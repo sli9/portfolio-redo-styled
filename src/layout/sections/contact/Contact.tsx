@@ -21,15 +21,15 @@ export const Contact = () => {
             <Container>
                 <SectionTitle text={"Contact"} bgtext={"get in touch"}/>
 
-                <FlexWrapper align={"flex-start"} justify={"space-evenly"} gap={"50px"}>
+                <FlexWrapper align={"flex-start"} justify={"space-evenly"} gap={"50px"} wrap={"wrap"}>
                     <InformationBlock>
-                        <h4>Call me</h4>
+                        <h4>My phone number</h4>
                         <FlexWrapper align={"end"} gap={"10px"}>
                             <Icon iconId={"phone"} width={"20px"} height={"20px"} viewBox={" 0 0 24 24"}/>
                             <a href={'tel:+375292846599'}>+375292846599</a>
                         </FlexWrapper>
 
-                        <h4>Write me by mail</h4>
+                        <h4>My email</h4>
                         <FlexWrapper align={"end"} gap={"10px"}>
                             <Icon iconId={"envelope"} width={"20px"} height={"20px"} viewBox={" 0 0 32 32"}/>
                             sil9gosys@gmail.com
@@ -61,7 +61,11 @@ export const Contact = () => {
 }
 
 const StyledContact = styled.section`
-
+  ${Container} > ${FlexWrapper} {
+    @media ${theme.media.tablet} {
+      gap: 100px;
+    }
+  }
 `
 
 const StyledForm = styled.form`
@@ -73,6 +77,11 @@ const StyledForm = styled.form`
 
   div:has(textarea) {
     height: 100px;
+  }
+  
+  @media ${theme.media.tablet} {
+    max-width: 80%;
+    gap: 5px;
   }
 `
 
@@ -159,6 +168,10 @@ const InformationBlock = styled.div`
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 10px;
+  }
+
+  @media ${theme.media.mobile} {
+    max-width: 100%;
   }
 `
 
