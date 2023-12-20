@@ -1,40 +1,33 @@
 import styled, {css} from "styled-components";
 import {theme} from "../../../styles/Theme";
-import {useState} from "react";
+import {FlexWrapper} from "../../../components/FlexWrapper";
 
+const Menu = styled.nav`
 
-export const MobileMenu = (props: { items: string[] }) => {
-    const [isOpen, setIsOpen] = useState<boolean>(false)
-
-
-    return (
-        <StyledMobileMenu>
-            <BurgerMenu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-                <span></span>
-            </BurgerMenu>
-
-            <MobileMenuList isOpen={isOpen}>
-                <ul>
-                    {props.items.map((item, index) => (
-                        <ListItem key={index}>
-                            <Link href="">{item}</Link>
-                        </ListItem>
-                    ))}
-                </ul>
-            </MobileMenuList>
-        </StyledMobileMenu>
-    )
-}
-
-const StyledMobileMenu = styled.nav`
-    display: none;
-  
-  @media ${theme.media.mobile} {
-    display: block;
+  ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
   }
 `
 
-const BurgerMenu =styled.button<{isOpen: boolean}>`
+const Link = styled.a`
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  opacity: 0.7;
+  color: ${theme.colors.text};
+
+  &:hover {
+    color: ${theme.colors.accent};
+`
+
+const ListItem = styled.li`
+`
+
+//Mobile menu
+
+const BurgerMenu = styled.button<{ isOpen: boolean }>`
   position: fixed;
   top: 10px;
   right: 10px;
@@ -50,10 +43,10 @@ const BurgerMenu =styled.button<{isOpen: boolean}>`
 
     position: absolute;
     left: 10px;
-    
+
     transition: 0.5s;
   }
-  
+
   span:before {
     content: "";
     display: block;
@@ -79,8 +72,8 @@ const BurgerMenu =styled.button<{isOpen: boolean}>`
   }
 `
 
-const MobileMenuList =styled.div<{isOpen: boolean}>`
- 
+const MobileMenuList = styled(FlexWrapper)<{ isOpen: boolean }>`
+
   height: 70px;
   display: flex;
 
@@ -95,27 +88,16 @@ const MobileMenuList =styled.div<{isOpen: boolean}>`
     transform: translateX(0%);
   `}
   ul {
-    display: flex;
     align-items: center;
     gap: 20px;
-    list-style: none;
     margin-right: 50px;
   }
 `
 
-const Link = styled.a`
-  font-size: 18px;
-  font-weight: 300;
-  text-align: center;
-  opacity: 0.7;
-  color: ${theme.colors.text};
-
-  &:hover {
-    color: ${theme.colors.accent};
-`
-
-const ListItem = styled.li`
-`
-
-
-
+export const S = {
+    Menu,
+    Link,
+    ListItem,
+    BurgerMenu,
+    MobileMenuList,
+}
