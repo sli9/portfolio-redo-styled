@@ -1,60 +1,66 @@
-import styled from "styled-components";
+import React from "react";
 import {SectionTitle} from "../../../components/SectionTitle";
-import {Skill} from "./skill/Skill";
+import {Skill, SkillPropsType} from "./skill/Skill";
 import {Container} from "../../../components/Container";
+import {S} from "./Skills_Styles"
 
-export const Skills = () => {
+
+const skillsData: SkillPropsType[] = [
+    {
+        iconId: "js",
+        title: "JS",
+        description: "ES6, Cycles, Conditionals, Event, Promise, etc.",
+        viewBox: '0 0 448 512',
+    },
+    {
+        iconId: "ts",
+        title: "TS",
+        description: "Primitive types, Union types, Literal types, Objects, Arrays, Functions, Interfaces, Generics",
+    },
+    {
+        iconId: "react",
+        title: "React",
+        description: "Functional components, Higher Order Components, React hooks, Class-based components, etc.",
+    },
+    {
+        iconId: "redux",
+        title: "Redux",
+        description: "Redux toolkit, Flux, React-Redux, Selectors, etc.",
+        viewBox: '0 0 32 32',
+    },
+    {
+        iconId: "css",
+        title: "CSS",
+        description: "BEM, Sass, Specificity, Cascade, Inheritance, Position, Flex, Grid, styled-components, etc.",
+    },
+    {
+        iconId: "git",
+        title: "Git",
+        description: "Branching, Merging, GitHub Pages, etc.",
+        viewBox: '0 0 448 512',
+    },
+    {
+        iconId: "html",
+        title: "HTML5",
+        description: "Semantics, Tags, Forms, etc.",
+    },
+]
+export const Skills: React.FC = () => {
     return (
-        <StyledSkills>
+        <S.Skills>
             <Container>
                 <SectionTitle text={"Skills"} bgtext={"What I know"}/>
-                <GridWrapper>
-
-                    <Skill title={'JS'}
-                           description={'ES6, Cycles, Conditionals, Event, Promise, etc. '}
-                           iconId={'js'}
-                           viewBox={'0 0 448 512'}
-                    />
-                    <Skill title={'TS'}
-                           description={'Primitive types, Union types, Literal types, Objects, Arrays, Functions, Interfaces, Generics'}
-                           iconId={'ts'}
-                    />
-                    <Skill title={'React'}
-                           description={'Functional components, Higher Order Components, React hooks, Class-based components, etc.'}
-                           iconId={'react'}
-                    />
-                    <Skill title={'Redux'}
-                           description={'Redux toolkit, Flux, React-Redux, Selectors, etc.'}
-                           iconId={'redux'}
-                           viewBox={'0 0 32 32'}
-                    />
-                    <Skill title={'CSS'}
-                           description={'BEM, Sass, Specificity, Cascade, Inheritance, Position, Flex, Grid, styled-components, etc.'}
-                           iconId={'css'}
-                    />
-                    <Skill title={'Git'}
-                           description={'Branching, Merging, GitHub Pages, etc.'}
-                           iconId={'git'}
-                           viewBox={'0 0 448 512'}
-                    />
-                    <Skill title={'HTML5'}
-                           description={'Semantics, Tags, Forms, etc.'}
-                           iconId={'html'}
-                    />
-
-                </GridWrapper>
+                <S.GridWrapper>
+                    {skillsData.map((s) =>
+                        <Skill key={s.iconId} title={s.title}
+                               description={s.description}
+                               iconId={s.iconId}
+                               viewBox={s.viewBox}
+                        />
+                    )}
+                </S.GridWrapper>
             </Container>
-        </StyledSkills>
+        </S.Skills>
     )
 }
 
-const StyledSkills = styled.section`
-
-`
-
-const GridWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, auto));
-  grid-column-gap: 40px;
-  grid-row-gap: 75px;
-`

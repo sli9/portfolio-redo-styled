@@ -1,9 +1,9 @@
+import React, {useEffect, useState} from "react";
 import {Icon} from "../../components/icon/Icon";
 import {Container} from "../../components/Container";
 import {FlexWrapper} from "../../components/FlexWrapper";
 import {MobileMenu} from "./menu/mobileMenu/MobileMenu";
 import {S} from "./Header_Styles"
-import React, {useEffect, useState} from "react";
 import {DesktopMenu} from "./menu/desktopMenu/DesktopMenu";
 
 const items = ['Home', 'Skills', 'Projects', 'Contact']

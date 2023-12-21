@@ -4,7 +4,7 @@ import {Main} from "./layout/sections/main/Main";
 import {Skills} from "./layout/sections/skills/Skills";
 import {Works} from "./layout/sections/works/Works";
 import {Contact} from "./layout/sections/contact/Contact";
-import {Footer} from "./layout/sections/footer/Footer";
+import {Footer} from "./layout/footer/Footer";
 
 
 function App() {

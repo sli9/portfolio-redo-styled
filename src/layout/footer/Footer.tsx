@@ -1,6 +1,9 @@
+import React from "react";
 import styled from "styled-components";
+import {theme} from "../../styles/Theme";
 
-export const Footer = () => {
+
+export const Footer: React.FC = () => {
     return (
         <StyledFooter>
             <Copyright>© 2023. All rights reserved.</Copyright>
@@ -15,5 +18,5 @@ const StyledFooter = styled.footer`
 `
 
 const Copyright = styled.small`
-  color: #aaa;
+  color: ${theme.colors.text};
 `

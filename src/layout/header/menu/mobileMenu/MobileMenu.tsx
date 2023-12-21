@@ -6,7 +6,6 @@ import {S} from "../HeaderMenu_Styles";
 export const MobileMenu: React.FC<{ items: string[] }> = (props) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
-
     return (
         <>
             <S.BurgerMenu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
