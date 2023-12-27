@@ -2,7 +2,7 @@ import {theme} from "../../../styles/Theme";
 import styled from "styled-components";
 import mainBg from "../../../assets/images/forMain/mainBackground.jpg"
 import {FlexWrapper} from "../../../components/FlexWrapper";
-import {flexFont} from "../../../styles/Common";
+import {flexFont} from "../../../styles/FontResize";
 
 const Main = styled.main`
   min-height: 100vh;
@@ -17,6 +17,10 @@ const Main = styled.main`
 const MainFlexWrapper = styled(FlexWrapper)`
   backdrop-filter: brightness(0.7);
   
+  p {
+    display: none;
+  }
+  
   @media ${theme.media.tablet} {
     flex-direction: column-reverse;
     justify-content: center;
@@ -29,7 +33,15 @@ const GreetingText = styled.div`
   flex-direction: column;
   
   h2 {
-    ${flexFont({weight: 600, color: theme.colors.font, lineHeight: 1.5, Fmax: 50, Fmin: 36})}
+    letter-spacing: 3px;
+    ${flexFont({weight: 400, color: theme.colors.font, lineHeight: 1.5, Fmax: 50, Fmin: 36})}
+  }
+  & > span {
+    ${flexFont({weight: 300, color: theme.colors.font, lineHeight: 1.5, Fmax: 50, Fmin: 36})}
+  }
+  
+  @media ${theme.media.tablet} {
+    align-items: center;
   }
 `
 
@@ -96,8 +108,8 @@ const PhotoWrapper = styled.div`
   
 
   @media ${theme.media.tablet} {
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 250px;
+    max-width: 250px;
     border: 15px solid ${theme.colors.firstBg};
     border-radius: 50%;
     box-shadow: 5px 7px 25px rgb(0 0 0 / 50%);
