@@ -1,6 +1,7 @@
 import styled, {css} from "styled-components";
 import {theme} from "../../../styles/Theme";
 import {FlexWrapper} from "../../../components/FlexWrapper";
+import {Link} from "react-scroll";
 
 const Menu = styled.nav`
 
@@ -11,19 +12,19 @@ const Menu = styled.nav`
   }
 `
 
-const Link = styled.a`
+const NavLink = styled(Link)`
   font-size: 18px;
   font-weight: 300;
   text-align: center;
   opacity: 0.7;
   color: ${theme.colors.text};
-
-  &:hover {
+ 
+  &:hover, &.active {
     color: ${theme.colors.accent};
+  }
 `
 
-const ListItem = styled.li`
-`
+const ListItem = styled.li``
 
 //Mobile menu
 
@@ -96,7 +97,7 @@ const MobileMenuList = styled(FlexWrapper)<{ isOpen: boolean }>`
 
 export const S = {
     Menu,
-    Link,
+    NavLink,
     ListItem,
     BurgerMenu,
     MobileMenuList,

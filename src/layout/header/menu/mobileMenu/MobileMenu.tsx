@@ -3,7 +3,7 @@ import {Menu} from "../Menu";
 import {S} from "../HeaderMenu_Styles";
 
 
-export const MobileMenu: React.FC<{ items: string[] }> = (props) => {
+export const MobileMenu: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
@@ -13,7 +13,7 @@ export const MobileMenu: React.FC<{ items: string[] }> = (props) => {
             </S.BurgerMenu>
 
             <S.MobileMenuList align={"center"} isOpen={isOpen}>
-                <Menu items={props.items}/>
+                <Menu/>
             </S.MobileMenuList>
         </>
     )

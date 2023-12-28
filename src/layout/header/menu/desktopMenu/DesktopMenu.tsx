@@ -1,8 +1,8 @@
 import React from 'react';
 import {Menu} from "../Menu";
 
-export const DesktopMenu: React.FC<{ items: string[] }> = (props) => {
+export const DesktopMenu: React.FC = () => {
     return (
-            <Menu items={props.items}/>
+            <Menu/>
     )
 }

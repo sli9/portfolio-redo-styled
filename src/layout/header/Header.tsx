@@ -5,8 +5,7 @@ import {FlexWrapper} from "../../components/FlexWrapper";
 import {MobileMenu} from "./menu/mobileMenu/MobileMenu";
 import {S} from "./Header_Styles"
 import {DesktopMenu} from "./menu/desktopMenu/DesktopMenu";
-
-const items = ['Home', 'Skills', 'Projects', 'Contact']
+import {animateScroll} from "react-scroll";
 
 export const Header: React.FC = () => {
 
@@ -16,7 +15,6 @@ export const Header: React.FC = () => {
     useEffect(() => {
         const handleWindowResize = () => {
             setWidth(window.innerWidth)
-            console.log(width)
         }
         window.addEventListener('resize', handleWindowResize)
 
@@ -27,8 +25,10 @@ export const Header: React.FC = () => {
         <S.Header>
             <Container>
                 <FlexWrapper align={"center"} justify={"space-between"}>
-                    <Icon iconId={'logo'} viewBox={'0 0 100 100'} fill={"#111418"}/>
-                    {width > breakPoint ? <DesktopMenu items={items}/> : <MobileMenu items={items}/>}
+                    <S.LogoLink onClick={() => animateScroll.scrollToTop()}>
+                        <Icon iconId={'logo'} viewBox={'0 0 100 100'} fill={"#111418"}/>
+                    </S.LogoLink>
+                    {width > breakPoint ? <DesktopMenu/> : <MobileMenu/>}
                 </FlexWrapper>
             </Container>
         </S.Header>

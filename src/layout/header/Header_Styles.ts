@@ -12,7 +12,10 @@ const Header = styled.header`
   right: 0;
 `
 
+const LogoLink = styled.a``
+
 export const S = {
     Header,
+    LogoLink,
 }
 

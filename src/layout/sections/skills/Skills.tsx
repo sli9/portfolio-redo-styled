@@ -47,7 +47,7 @@ const skillsData: SkillPropsType[] = [
 ]
 export const Skills: React.FC = () => {
     return (
-        <S.Skills>
+        <S.Skills id={'skills'}>
             <Container>
                 <SectionTitle text={"Skills"} bgtext={"What I know"}/>
                 <S.GridWrapper>

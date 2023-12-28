@@ -4,10 +4,11 @@ import {S} from "./Main_Styles"
 import {Container} from "../../../components/Container";
 import MyCV from "../../../assets/images/documents/Mycv.pdf"
 import Typewriter from 'typewriter-effect';
+import ReactParallaxTilt from "react-parallax-tilt";
 
 export const Main: React.FC = () => {
     return (
-        <S.Main>
+        <S.Main id={'home'}>
             <Container>
                 <S.MainFlexWrapper justify={"space-between"} align={"center"}>
                     <S.GreetingText>
@@ -28,7 +29,12 @@ export const Main: React.FC = () => {
                         </S.ButtonCV>
                     </S.GreetingText>
                     <S.PhotoWrapper>
-                        <S.Photo src={MainPhoto} alt={'photo'}/>
+                        <ReactParallaxTilt
+                        scale={1.1}
+                        transitionSpeed={2500}
+                        >
+                            <S.Photo src={MainPhoto} alt={'photo'}/>
+                        </ReactParallaxTilt>
                     </S.PhotoWrapper>
                 </S.MainFlexWrapper>
             </Container>

@@ -26,7 +26,7 @@ const worksData: WorkPropsType[] = [
 
 export const Works: React.FC = () => {
     return (
-        <S.Works>
+        <S.Works id={'projects'}>
             <Container>
                 <SectionTitle text={'Projects'} bgtext={'My works'}/>
 
