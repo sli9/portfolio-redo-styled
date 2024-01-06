@@ -6,6 +6,7 @@ import TodoImage from "../../../assets/images/forWorks/todo-list.jpg"
 import socialPicture from "../../../assets/images/forWorks/social_media_.jpg"
 import {Container} from "../../../components/Container";
 import {S} from "./Works_Styles"
+import {Slide} from "react-awesome-reveal";
 
 const worksData: WorkPropsType[] = [
     {
@@ -13,14 +14,14 @@ const worksData: WorkPropsType[] = [
         srcImage: TodoImage,
         codeLink: 'https://github.com/sli9/Todolist',
         siteLink: 'https://sli9.github.io/Todolist',
-        description: 'React, Redux toolkit, TS, RestAPI, Thunk, Material UI, Unit Tests, formik'
+        description: 'React, Redux toolkit, TS, RestAPI, Thunk, Material UI, Unit Tests, formik',
     },
     {
         title: 'Social network',
         srcImage: socialPicture,
         codeLink: 'https://github.com/sli9/Setka',
         siteLink: 'https://sli9.github.io/Setka',
-        description: 'React, Redux, RestAPI, TS, Thunk, Ant design, Redux Form'
+        description: 'React, Redux, RestAPI, TS, Thunk, Ant design, Redux Form',
     },
 ]
 
@@ -31,12 +32,15 @@ export const Works: React.FC = () => {
                 <SectionTitle text={'Projects'} bgtext={'My works'}/>
 
                 <FlexWrapper justify={"center"} align={"flex-start"} wrap={"wrap"} gap={"30px"}>
-                    {worksData.map((w) =>
-                        <Work key={w.title} srcImage={w.srcImage}
-                              codeLink={w.codeLink}
-                              siteLink={w.siteLink}
-                              description={w.description}
-                              title={w.title}/>
+                    {worksData.map((w, index) =>
+                        <Slide direction={index % 2 === 0 ? "left" : "right"} cascade key={index}>
+                            <Work  srcImage={w.srcImage}
+                                  codeLink={w.codeLink}
+                                  siteLink={w.siteLink}
+                                  description={w.description}
+                                  title={w.title}
+                            />
+                        </Slide>
                     )}
                 </FlexWrapper>
             </Container>

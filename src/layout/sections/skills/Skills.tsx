@@ -3,6 +3,7 @@ import {SectionTitle} from "../../../components/SectionTitle";
 import {Skill, SkillPropsType} from "./skill/Skill";
 import {Container} from "../../../components/Container";
 import {S} from "./Skills_Styles"
+import {Fade} from "react-awesome-reveal";
 
 
 const skillsData: SkillPropsType[] = [
@@ -51,13 +52,15 @@ export const Skills: React.FC = () => {
             <Container>
                 <SectionTitle text={"Skills"} bgtext={"What I know"}/>
                 <S.GridWrapper>
-                    {skillsData.map((s) =>
-                        <Skill key={s.iconId} title={s.title}
-                               description={s.description}
-                               iconId={s.iconId}
-                               viewBox={s.viewBox}
-                        />
-                    )}
+                    <Fade duration={1500}>
+                        {skillsData.map((s) =>
+                            <Skill key={s.iconId} title={s.title}
+                                   description={s.description}
+                                   iconId={s.iconId}
+                                   viewBox={s.viewBox}
+                            />
+                        )}
+                    </Fade>
                 </S.GridWrapper>
             </Container>
         </S.Skills>
