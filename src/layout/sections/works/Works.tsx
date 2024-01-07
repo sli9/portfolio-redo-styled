@@ -33,7 +33,7 @@ export const Works: React.FC = () => {
 
                 <FlexWrapper justify={"center"} align={"flex-start"} wrap={"wrap"} gap={"30px"}>
                     {worksData.map((w, index) =>
-                        <Slide direction={index % 2 === 0 ? "left" : "right"} cascade key={index}>
+                        <Slide triggerOnce direction={index % 2 === 0 ? "left" : "right"} cascade key={index}>
                             <Work  srcImage={w.srcImage}
                                   codeLink={w.codeLink}
                                   siteLink={w.siteLink}
