@@ -5,10 +5,12 @@ import {Container} from "../../../components/Container";
 import {Icon} from "../../../components/icon/Icon";
 import {S} from "./Contact_Styles"
 import emailjs from '@emailjs/browser';
+import {SnackBar} from "../../../components/SnackBar";
 
 export const Contact: React.FC = () => {
     const form = useRef<HTMLFormElement | null>(null)
     const [isDisabled, setIsDisabled] = useState<boolean>(true)
+    const [visibility, setVisibility] = useState<boolean>(false)
 
     const isValid = () => {
         if (form.current?.checkValidity()) {
@@ -23,11 +25,13 @@ export const Contact: React.FC = () => {
         emailjs.sendForm('service_pvb3j7a', 'portfolio_iyeirg4', form.current as HTMLFormElement, 'XcHDBiyQwVq72FYRK')
             .then((result) => {
                 if (result.text === 'OK') {
+                    setVisibility(true)
                     // snackRef.current?.showSnackbar({type: 'success', message: `Thanks! I'll answer as soon as possible`})
                     form.current?.reset()
 
                 }
             }, (error) => {
+                setVisibility(false)
                 // snackRef.current?.showSnackbar({type: 'fail', message: 'Something went wrong'})
                 console.log(error.text)
             });
@@ -75,6 +79,8 @@ export const Contact: React.FC = () => {
                         <S.Button disabled={isDisabled}>Send Message</S.Button>
                     </S.Form>
                 </FlexWrapper>
+
+                <SnackBar visibility={visibility} type={"success"} message={"Thanks! I'll answer as soon as possible"}/>
             </Container>
         </S.Contact>
     )

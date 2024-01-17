@@ -4,6 +4,8 @@ import {FlexWrapper} from "../../../components/FlexWrapper";
 import {theme} from "../../../styles/Theme";
 
 const Contact = styled.section`
+  height: 100vh;
+
   ${Container} > ${FlexWrapper} {
     @media ${theme.media.tablet} {
       gap: 100px;

@@ -1,8 +1,9 @@
 import React from 'react';
-import {Menu} from "../Menu";
+import {Menu, MenuPropsType} from "../Menu";
 
-export const DesktopMenu: React.FC = () => {
+
+export const DesktopMenu: React.FC<MenuPropsType> = ({backgroundChanger}) => {
     return (
-            <Menu/>
+            <Menu backgroundChanger={backgroundChanger}/>
     )
 }
