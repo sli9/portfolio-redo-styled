@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import {Container} from "../../../components/Container";
-import {FlexWrapper} from "../../../components/FlexWrapper";
 import {theme} from "../../../styles/Theme";
 
 const Contact = styled.section`
-  height: 100vh;
+  min-height: 100vh;
 
-  ${Container} > ${FlexWrapper} {
+  div:nth-child(2) {
     @media ${theme.media.tablet} {
       gap: 100px;
     }

@@ -4,7 +4,7 @@ import mainBg from "../../../assets/images/forMain/mainBackground.jpg"
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {flexFont} from "../../../styles/FontResize";
 
-const Main = styled.main`
+const Main = styled.section`
   min-height: 100vh;
   display: flex;
   position: relative;

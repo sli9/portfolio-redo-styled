@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const Header = styled.header<{headerBgColor?: string}>`
+const Header = styled.header<{headerBgColor: string}>`
   display: flex;
-  background-color: ${props => props.headerBgColor || "transparent"};
+  background-color: ${props => props.headerBgColor};
   height: 70px;
   position: fixed;
   z-index: 100;

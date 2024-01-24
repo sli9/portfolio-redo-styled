@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import {Menu, MenuPropsType} from "../Menu";
+import {Menu} from "../Menu";
 import {S} from "../HeaderMenu_Styles";
 
 
-export const MobileMenu: React.FC<MenuPropsType> = ({backgroundChanger}) => {
+export const MobileMenu: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
@@ -13,7 +13,7 @@ export const MobileMenu: React.FC<MenuPropsType> = ({backgroundChanger}) => {
             </S.BurgerMenu>
 
             <S.MobileMenuList align={"center"} isOpen={isOpen}>
-                <Menu backgroundChanger={backgroundChanger}/>
+                <Menu/>
             </S.MobileMenuList>
         </>
     )

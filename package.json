@@ -52,7 +52,6 @@
     "react-dom": "18.2.0",
     "react-parallax-tilt": "^1.7.179",
     "react-refresh": "0.11.0",
-    "react-scroll": "^1.9.0",
     "resolve": "1.20.0",
     "resolve-url-loader": "4.0.0",
     "sass-loader": "12.3.0",

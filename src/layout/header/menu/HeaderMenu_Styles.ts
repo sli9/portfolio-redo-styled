@@ -1,7 +1,6 @@
 import styled, {css} from "styled-components";
 import {theme} from "../../../styles/Theme";
 import {FlexWrapper} from "../../../components/FlexWrapper";
-import {Link} from "react-scroll";
 
 const Menu = styled.nav`
 
@@ -12,13 +11,13 @@ const Menu = styled.nav`
   }
 `
 
-const NavLink = styled(Link)`
+const NavLink = styled.a`
   font-size: 18px;
   font-weight: 300;
   text-align: center;
   opacity: 0.7;
   color: ${theme.colors.text};
- 
+
   &:hover, &.active {
     color: ${theme.colors.accent};
   }

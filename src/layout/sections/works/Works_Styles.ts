@@ -121,6 +121,7 @@ const WorkInfo = styled.div`
   &:hover {
     &::before {
       opacity: 1;
+      cursor: pointer;
     }
   }
 `
